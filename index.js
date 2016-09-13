@@ -3,7 +3,7 @@ const run = (cb, args) => {
   args.length > 0 ? args.shift()(...args) : null
 }
 
-export const idle = (cb, delay = false) => (...args) => (
+export const tarry = (cb, delay = false) => (...args) => (
   delay ? setTimeout(() => run(cb, args), delay) : run(cb, args)
 )
 

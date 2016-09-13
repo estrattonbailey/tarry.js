@@ -1,12 +1,12 @@
 {
-  "name": "idle.js",
+  "name": "tarry.js",
   "version": "0.0.1",
   "description": "A really tiny sequencing library with support for delays.",
-  "main": "dist/idle.js",
+  "main": "dist/tarry.js",
   "jsnext:main": "index.js",
   "scripts": {
-    "build": "mkdir -p dist && browserify index.js --standalone idle > dist/idle.js",
-    "size": "bundle-size ./dist/idle.js",
+    "build": "mkdir -p dist && browserify index.js --standalone tarry > dist/tarry.js",
+    "size": "bundle-size ./dist/tarry.js",
     "test": "ava test -v"
   },
   "browserify": {
@@ -22,15 +22,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/estrattonbailey/idle.js.git"
+    "url": "git+ssh://git@github.com/estrattonbailey/tarry.js.git"
   },
   "keywords": [],
   "author": "estrattonbailey",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/estrattonbailey/idle.js/issues"
+    "url": "https://github.com/estrattonbailey/tarry.js/issues"
   },
-  "homepage": "https://github.com/estrattonbailey/idle.js#readme",
+  "homepage": "https://github.com/estrattonbailey/tarry.js#readme",
   "devDependencies": {
     "ava": "^0.16.0",
     "babel-cli": "^6.14.0",
