@@ -1,0 +1,49 @@
+{
+  "name": "idle.js",
+  "version": "0.0.1",
+  "description": "A really tiny sequencing library with support for delays.",
+  "main": "dist/idle.js",
+  "jsnext:main": "index.js",
+  "scripts": {
+    "build": "mkdir -p dist && browserify index.js --standalone idle > dist/idle.js",
+    "size": "bundle-size ./dist/idle.js",
+    "test": "ava test -v"
+  },
+  "browserify": {
+    "debug": true,
+    "cache": {},
+    "packageCache": {},
+    "extension": [
+      "js"
+    ],
+    "transform": [
+      "babelify"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/estrattonbailey/idle.js.git"
+  },
+  "keywords": [],
+  "author": "estrattonbailey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/estrattonbailey/idle.js/issues"
+  },
+  "homepage": "https://github.com/estrattonbailey/idle.js#readme",
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "babel-cli": "^6.14.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.9.0",
+    "bundle-size": "^0.7.0",
+    "jsdom": "^9.4.1",
+    "jsdom-global": "^2.0.0",
+    "query-string": "^4.2.3",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "minifyify": "^7.3.3",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {}
+}
