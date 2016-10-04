@@ -2,7 +2,7 @@
   "name": "tarry.js",
   "version": "0.0.1",
   "description": "A really tiny sequencing library with support for delays.",
-  "main": "dist/tarry.js",
+  "main": "index.js",
   "jsnext:main": "index.js",
   "scripts": {
     "build": "mkdir -p dist && browserify index.js --standalone tarry > dist/tarry.js",
