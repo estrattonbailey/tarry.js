@@ -1,7 +1,6 @@
 function run(cb, args){
-  args = walkArray([].slice.call(args))
   cb()
-  args.length > 0 ? args.shift()(args) : null
+  args.length > 0 && args.shift()(args)
 }
 
 function walkArray(arr){
