@@ -1,10 +1,12 @@
 import { tarry, queue } from '../../../index.es5.js'
 
-const hello = tarry(
+let hello = tarry(
   () => console.log('Hello')
 )
 const world = tarry(
   () => console.log('world')
 )
 
-queue(hello(0), world(2000), hello(200))()
+hello = hello(5000)
+
+queue(hello, world(2000))()

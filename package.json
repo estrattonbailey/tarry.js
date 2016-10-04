@@ -5,8 +5,8 @@
   "main": "index.js",
   "jsnext:main": "index.js",
   "scripts": {
-    "build": "mkdir -p dist && browserify index.js --standalone tarry > dist/tarry.js",
-    "size": "bundle-size ./dist/tarry.js",
+    "build": "mkdir -p browser && browserify index.js --standalone tarry -p [minifyify --no-map] > browser/index.js",
+    "size": "bundle-size ./browser/index.js",
     "test": "ava test -v"
   },
   "browserify": {
