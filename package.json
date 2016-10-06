@@ -1,6 +1,6 @@
 {
   "name": "tarry.js",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A really tiny sequencing library with support for delays.",
   "main": "index.js",
   "jsnext:main": "index.js",
