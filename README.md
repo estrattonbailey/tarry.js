@@ -1,9 +1,7 @@
 # tarry 
 A super-light, composable sequencing library. 
 
-ES6: **~750bytes gzipped** with UMD
-
-ES5 (CommonJS, ES6 exports): **~335bytes gzipped**
+**~266bytes gzipped**
 
 ## Usage
 ```javascript

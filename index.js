@@ -1,15 +1,26 @@
-const run = (cb, args) => {
-  cb()
-  args.length > 0 && args.shift()(...args)
+function tarry(cb, delay){
+  return function run(arg){
+    if ('number' === typeof arg ? arg : false) {
+      return tarry(cb, arg)
+    } else if (delay){
+      return setTimeout(cb, delay)
+    } else if (!arg){
+      return cb()
+    }
+  }
 }
 
-export const tarry = (cb, delay = null) => (...args) => {
-  let override = 'number' === typeof args[0] ? args[0] : null 
-  return 'number' === typeof override && override > -1 
-    ? tarry(cb, override) 
-    : 'number' === typeof delay && delay > -1 
-      ? setTimeout(() => run(cb, args), delay) 
-      : run(cb, args)
+function queue(){
+  var args = [].slice.call(arguments)
+  
+  return function play(){
+    for (var i = 0; i < args.length; i++){
+      args[i]()
+    }
+  }
 }
 
-export const queue = (...args) => () => args.shift()(...args)
+module.exports = exports = {
+  tarry: tarry,
+  queue: queue
+}
