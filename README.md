@@ -1,7 +1,7 @@
 # tarry 
-A super-light, composable sequencing library. 
+Hyper-minimal composable sequencing library.
 
-**~266bytes gzipped**
+**~315bytes gzipped**
 
 ## Usage
 ```javascript

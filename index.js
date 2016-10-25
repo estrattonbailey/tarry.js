@@ -1,22 +1,36 @@
+function next(args){
+  args.length > 0 && args.shift().apply(this, args)
+}
+
+function run(cb, args){
+  cb()
+  next(args)
+}
+
 function tarry(cb, delay){
-  return function run(arg){
-    if ('number' === typeof arg ? arg : false) {
-      return tarry(cb, arg)
-    } else if (delay){
-      return setTimeout(cb, delay)
-    } else if (!arg){
-      return cb()
+  return function(){
+    var args = [].slice.call(arguments)
+    var override = args[0]
+    
+    if ('number' === typeof override){
+      return tarry(cb, override)
     }
+    
+    'number' === typeof delay ? (
+      setTimeout(function(){
+        run(cb, args)
+      }, delay) 
+    ) : (
+      run(cb, args)
+    )
   }
 }
 
 function queue(){
   var args = [].slice.call(arguments)
-  
-  return function play(){
-    for (var i = 0; i < args.length; i++){
-      args[i]()
-    }
+  return function() {
+    var _args = args.slice(0)
+    next(_args)
   }
 }
 
