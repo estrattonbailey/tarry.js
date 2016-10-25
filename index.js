@@ -28,10 +28,9 @@ function tarry(cb, delay){
 
 function queue(){
   var args = [].slice.call(arguments)
-  return function() {
-    var _args = args.slice(0)
-    next(_args)
-  }
+  return tarry(function(){
+    next(args.slice(0))
+  })
 }
 
 module.exports = exports = {
