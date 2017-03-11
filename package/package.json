@@ -3,19 +3,8 @@
   "version": "0.3.0",
   "description": "Hyper-minimal composable sequencing library.",
   "main": "index.js",
-  "jsnext:main": "index.js",
   "scripts": {
-    "build": "mkdir -p browser && browserify index.js --standalone tarry -p [minifyify --no-map] > browser/index.js",
-    "size": "bundle-size ./browser/index.js",
     "test": "ava test -v"
-  },
-  "browserify": {
-    "debug": true,
-    "cache": {},
-    "packageCache": {},
-    "extension": [
-      "js"
-    ]
   },
   "repository": {
     "type": "git",
@@ -29,10 +18,7 @@
   },
   "homepage": "https://github.com/estrattonbailey/tarry.js#readme",
   "devDependencies": {
-    "ava": "^0.16.0",
-    "bundle-size": "^0.7.0",
-    "browserify": "^13.0.1",
-    "minifyify": "^7.3.3"
+    "ava": "^0.16.0"
   },
   "dependencies": {}
 }
