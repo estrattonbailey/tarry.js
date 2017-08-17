@@ -1,34 +1,34 @@
-function next(args){
+function next (args) {
   args.length > 0 && args.shift().apply(this, args)
 }
 
-function run(cb, args){
+function run (cb, args) {
   cb()
   next(args)
 }
 
-function tarry(cb, delay){
-  return function(){
+function tarry (cb, delay) {
+  return function () {
     var args = [].slice.call(arguments)
     var override = args[0]
-    
-    if ('number' === typeof override){
+
+    if (typeof override === 'number') {
       return tarry(cb, override)
     }
-    
-    'number' === typeof delay ? (
-      setTimeout(function(){
+
+    typeof delay === 'number' ? (
+      setTimeout(function () {
         run(cb, args)
-      }, delay) 
+      }, delay)
     ) : (
       run(cb, args)
     )
   }
 }
 
-function queue(){
+function queue () {
   var args = [].slice.call(arguments)
-  return tarry(function(){
+  return tarry(function () {
     next(args.slice(0))
   })
 }
