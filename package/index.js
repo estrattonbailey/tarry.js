@@ -1,3 +1,16 @@
+function toArray (args) {
+  var arr = []
+  var index = 0
+  var max = args.length
+
+  while (index < max) {
+    arr.push(args[index])
+    index++
+  }
+
+  return arr
+}
+
 function next (args) {
   args.length > 0 && args.shift().apply(this, args)
 }
@@ -9,7 +22,7 @@ function run (cb, args) {
 
 function tarry (cb, delay) {
   return function () {
-    var args = [].slice.call(arguments)
+    var args = toArray(arguments)
     var override = args[0]
 
     if (typeof override === 'number') {
@@ -27,7 +40,7 @@ function tarry (cb, delay) {
 }
 
 function queue () {
-  var args = [].slice.call(arguments)
+  var args = toArray(arguments)
   return tarry(function () {
     next(args.slice(0))
   })
