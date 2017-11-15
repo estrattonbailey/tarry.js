@@ -1,5 +1,5 @@
 # tarry 
-Low-level composable sequencing utility - *243 bytes gzipped*
+Low-level composable sequencing utility - *279 bytes gzipped*
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
 
