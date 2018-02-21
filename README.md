@@ -1,11 +1,9 @@
-# tarry 
-Low-level composable sequencing utility - *279 bytes gzipped*
-
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
+# tarry.js
+Tiny composable sequencing utility. **250 bytes gzipped.**
 
 ## Usage
 ```javascript
-import { tarry, queue } from 'tarry'
+import { tarry, queue } from 'tarry.js'
 ```
 
 ### `tarry`
@@ -37,14 +35,23 @@ const sequence = queue(a, b(someBoolean ? 200 : 1000), c(500))
 sequence() // calls `a` in 200ms, `b` in 1000ms, and `c` in 500ms
 ```
 
-## API
+# API
 
 ### tarry(function[, delay])
-Returns a delayed function. If no delay is given, the function will be called immediately.
+Returns a delayed function. If no delay is given, the function will be called
+immediately.
 
-The returned function can then accept a delay as its only parameter. This will override the `delay` passed in the original definition (if any).
+The returned function can then accept a delay as its only parameter. This will
+override the `delay` passed in the original definition (if any).
 
 ### queue(function[, ...functions])
-Accepts a series of functions returned from `tarry` calls. Returns a function. When called, executes all functions in the queue, according to their order and `delay` values.
+Accepts a series of functions returned from `tarry` calls. Returns a function.
+When called, executes all functions in the queue, according to their order and
+`delay` values.
 
-MIT License
+# What is this for?
+I use it fairly often for animations and step-sequenced flows. Handy, but certainly
+not necessary.
+
+## License
+MIT License © [Eric Bailey](https://estrattonbailey.com)

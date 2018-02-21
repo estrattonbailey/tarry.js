@@ -1,0 +1,30 @@
+{
+  "name": "tarry.js",
+  "version": "1.0.3",
+  "description": "Hyper-minimal composable sequencing library.",
+  "source": "index.js",
+  "module": "dist/tarry.es.js",
+  "main": "dist/tarry.js",
+  "umd:main": "dist/tarry.umd.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "microbundle build",
+    "watch": "microbundle watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/estrattonbailey/tarry.js.git"
+  },
+  "keywords": [],
+  "author": "estrattonbailey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/estrattonbailey/tarry.js/issues"
+  },
+  "homepage": "https://github.com/estrattonbailey/tarry.js#readme",
+  "devDependencies": {
+    "microbundle": "^0.4.3"
+  }
+}

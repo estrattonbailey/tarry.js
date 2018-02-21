@@ -1,18 +1,17 @@
 function toArray (args) {
   var arr = []
-  var index = 0
-  var max = args.length
+  var i = 0
 
-  while (index < max) {
-    arr.push(args[index])
-    index++
+  while (i < args.length) {
+    arr.push(args[i])
+    i++
   }
 
   return arr
 }
 
 function next (args) {
-  args.length > 0 && args.shift().apply(this, args)
+  args.length && args.shift().apply(this, args)
 }
 
 function run (cb, args) {
@@ -22,12 +21,11 @@ function run (cb, args) {
 
 function tarry (cb, delay) {
   return function () {
-    var args = toArray(arguments)
-    var override = args[0]
-
-    if (typeof override === 'number') {
-      return tarry(cb, override)
+    if (typeof arguments[0] === 'number') {
+      return tarry(cb, arguments[0])
     }
+
+    var args = toArray(arguments)
 
     typeof delay === 'number' ? (
       setTimeout(function () {
@@ -40,9 +38,8 @@ function tarry (cb, delay) {
 }
 
 function queue () {
-  var args = toArray(arguments)
   return tarry(function () {
-    next(args.slice(0))
+    next(toArray(arguments).slice(0))
   })
 }
 
