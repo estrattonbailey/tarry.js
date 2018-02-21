@@ -19,7 +19,7 @@ function run (cb, args) {
   next(args)
 }
 
-function tarry (cb, delay) {
+export function tarry (cb, delay) {
   return function () {
     if (typeof arguments[0] === 'number') {
       return tarry(cb, arguments[0])
@@ -37,13 +37,8 @@ function tarry (cb, delay) {
   }
 }
 
-function queue () {
+export function queue () {
   return tarry(function () {
     next(toArray(arguments).slice(0))
   })
-}
-
-module.exports = exports = {
-  tarry: tarry,
-  queue: queue
 }
